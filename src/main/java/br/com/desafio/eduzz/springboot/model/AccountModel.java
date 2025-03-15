@@ -22,6 +22,9 @@ public class AccountModel {
     private String password;
     private OffsetDateTime created_at;
 
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    private WalletModel wallet;
+
     public AccountModel(Long id, String name, String email, String password, OffsetDateTime created_at) {
         this.id = id;
         this.name = name;

@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 public class AccountService {
 
-private final AccountRepository accountRepository;
-private final ObjectMapper mapper;
+    private final AccountRepository accountRepository;
+    private final ObjectMapper mapper;
 
     public AccountService(AccountRepository accountRepository, ObjectMapper mapper) {
-        this.accountRepository= accountRepository;
+        this.accountRepository = accountRepository;
         this.mapper = mapper;
     }
 
@@ -28,13 +28,13 @@ private final ObjectMapper mapper;
     }
 
 
-    public AccountDTO createAccount(AccountDTO accountDTO){
+    public AccountDTO createAccount(AccountDTO accountDTO) {
         AccountModel accountModel = mapper.convertValue(accountDTO, AccountModel.class);
         AccountModel savedAccount = accountRepository.save(accountModel);
         return mapper.convertValue(savedAccount, AccountDTO.class);
     }
 
-    public AccountDTO getById(Long id){
+    public AccountDTO getById(Long id) {
         return accountRepository.findById(id)
                 .map(account -> mapper.convertValue(account, AccountDTO.class))
                 .orElseThrow(() -> new EntityNotFoundException("Account not found with id " + id));  // Lança uma exceção
