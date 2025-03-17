@@ -1,6 +1,7 @@
 package br.com.desafio.eduzz.springboot.model;
 
 
+import br.com.desafio.eduzz.springboot.enums.AccountStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,14 +21,10 @@ public class AccountModel {
     private String name;
     private String email;
     private String password;
-    private OffsetDateTime created_at;
-
-    public AccountModel(Long id, String name, String email, String password, OffsetDateTime created_at) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.created_at = created_at;
-    }
+    private OffsetDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    private AccountStatus status;
+    private OffsetDateTime canceledAt;
+    private OffsetDateTime updateAt;
 
 }
