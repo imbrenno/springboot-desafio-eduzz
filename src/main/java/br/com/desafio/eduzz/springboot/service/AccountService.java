@@ -16,11 +16,11 @@ import java.util.Optional;
 @Service
 public class AccountService {
 
-private final AccountRepository accountRepository;
-private final ObjectMapper mapper;
+    private final AccountRepository accountRepository;
+    private final ObjectMapper mapper;
 
     public AccountService(AccountRepository accountRepository, ObjectMapper mapper) {
-        this.accountRepository= accountRepository;
+        this.accountRepository = accountRepository;
         this.mapper = mapper;
     }
 
@@ -29,7 +29,7 @@ private final ObjectMapper mapper;
                 .map(account -> mapper.convertValue(account, AccountDTO.class))
                 .toList();
     }
-
+  
     public AccountDTO createAccount(AccountDTO accountDTO) {
         accountDTO.setCreatedAt(OffsetDateTime.now(ZoneId.systemDefault()));
         accountDTO.setStatus(AccountStatus.ACTIVE);

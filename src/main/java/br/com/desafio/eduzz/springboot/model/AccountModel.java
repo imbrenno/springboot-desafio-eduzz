@@ -26,5 +26,9 @@ public class AccountModel {
     private AccountStatus status;
     private OffsetDateTime canceledAt;
     private OffsetDateTime updateAt;
+    private OffsetDateTime created_at;
+
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    private WalletModel wallet;
 
 }
