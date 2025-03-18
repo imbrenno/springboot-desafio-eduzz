@@ -14,9 +14,9 @@ public class AccountDTO {
     private String name;
     private String email;
     private String password;
-    private OffsetDateTime createdAt;
+    private OffsetDateTime created_at;
     private AccountStatus status;
-    private OffsetDateTime canceledAt;
-    private OffsetDateTime updateAt;
+    private OffsetDateTime canceled_at;
+    private OffsetDateTime update_at;
 
 }

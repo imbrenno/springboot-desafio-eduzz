@@ -1,6 +1,5 @@
 package br.com.desafio.eduzz.springboot.model;
 
-
 import br.com.desafio.eduzz.springboot.enums.AccountStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,14 +20,15 @@ public class AccountModel {
     private String name;
     private String email;
     private String password;
-    private OffsetDateTime createdAt;
+    private OffsetDateTime created_at;
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
-    private OffsetDateTime canceledAt;
-    private OffsetDateTime updateAt;
-    private OffsetDateTime created_at;
+    private OffsetDateTime canceled_at;
+    private OffsetDateTime update_at;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private WalletModel wallet;
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    private TransactionModel trasaction;
 
 }
