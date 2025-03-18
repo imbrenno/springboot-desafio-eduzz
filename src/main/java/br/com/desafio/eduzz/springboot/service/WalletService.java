@@ -1,8 +1,6 @@
 package br.com.desafio.eduzz.springboot.service;
 
-import br.com.desafio.eduzz.springboot.dto.AccountDTO;
 import br.com.desafio.eduzz.springboot.dto.WalletDTO;
-import br.com.desafio.eduzz.springboot.model.AccountModel;
 import br.com.desafio.eduzz.springboot.model.WalletModel;
 import br.com.desafio.eduzz.springboot.repository.WalletRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -12,5 +12,5 @@ public class WalletDTO {
     private Long id;
     private Long account_id;
     private double balance;
-    private OffsetDateTime create_at;
+    private OffsetDateTime created_at;
 }
