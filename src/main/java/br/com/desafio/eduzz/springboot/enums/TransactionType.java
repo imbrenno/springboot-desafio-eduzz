@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum TransactionType {
-    DEPOSITY("deposity"),
+    DEPOSIT("deposit"),
     BUY("buy"),
     SELL("sell");
 

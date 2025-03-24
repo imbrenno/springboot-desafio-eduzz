@@ -1,5 +1,7 @@
 package br.com.desafio.eduzz.springboot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +21,11 @@ public class WalletModel {
     private Long id;
     private double balance;
     private OffsetDateTime created_at;
+
     @OneToOne
     @JoinColumn(name = "account_id", nullable = false, unique = true)
+    @JsonBackReference
+    @JsonIgnore
     private AccountModel account;
 
 }

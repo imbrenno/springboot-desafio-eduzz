@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.util.List;
@@ -63,7 +62,7 @@ public class AccountService {
         getAccount.setEmail(Optional.ofNullable(accountDTO.getEmail()).orElse(getAccount.getEmail()));
         getAccount.setPassword(Optional.ofNullable(accountDTO.getPassword()).orElse(getAccount.getPassword()));
         getAccount.setUpdate_at(OffsetDateTime.now(ZoneId.systemDefault()));
-        getAccount.setCanceled_at(OffsetDateTime.now(ZoneId.systemDefault()));
+        getAccount.setCanceled_at(  OffsetDateTime.now(ZoneId.systemDefault()));
         getAccount.setStatus(Optional.ofNullable(accountDTO.getStatus()).orElse(getAccount.getStatus()));
 
         AccountModel savedAccount = accountRepository.save(mapper.convertValue(getAccount, AccountModel.class));
