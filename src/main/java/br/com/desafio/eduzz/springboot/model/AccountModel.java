@@ -1,10 +1,13 @@
 package br.com.desafio.eduzz.springboot.model;
 
 import br.com.desafio.eduzz.springboot.enums.AccountStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -26,9 +29,15 @@ public class AccountModel {
     private OffsetDateTime canceled_at;
     private OffsetDateTime update_at;
 
+
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
+    @JsonIgnore
     private WalletModel wallet;
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private TransactionModel trasaction;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
+    @JsonIgnore
+    private List<TransactionModel> transactions;
 
 }
