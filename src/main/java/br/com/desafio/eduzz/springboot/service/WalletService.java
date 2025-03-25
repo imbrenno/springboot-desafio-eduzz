@@ -1,25 +1,21 @@
 package br.com.desafio.eduzz.springboot.service;
 
 import br.com.desafio.eduzz.springboot.dto.WalletDTO;
+import br.com.desafio.eduzz.springboot.exception.EntityNotFoundException;
 import br.com.desafio.eduzz.springboot.model.WalletModel;
 import br.com.desafio.eduzz.springboot.repository.WalletRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WalletService {
 
     private WalletRepository walletRepository;
     private final ObjectMapper mapper;
-
-    public WalletService(WalletRepository walletRepository, ObjectMapper mapper) {
-        this.walletRepository = walletRepository;
-        this.mapper = mapper;
-    }
-
 
     List<WalletDTO> findAll() {
         return walletRepository.findAll().stream()
